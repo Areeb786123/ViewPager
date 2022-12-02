@@ -9,6 +9,7 @@ import com.example.viewpager.databinding.FragmentCradBinding
 
 class CradFragment : Fragment() {
 
+
     private var _fragmentBinding: FragmentCradBinding? = null
     private val fragmentBinding get() = _fragmentBinding!!
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viewpager.databinding.ItemLayoutBinding
 
-class ViewPagerViewHolder(val binding: ItemLayoutBinding) :
+class ViewPagerViewHolder(private val binding: ItemLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var list: ArrayList<String>
+    private var list: Int? = null
     private var position: Int? = null
     fun bind(
-        list: ArrayList<String>,
+        list: Int,
         position: Int
     ) {
         this.list = list
         this.position = position
-        binding.itemTextView.text = list[position]
+        binding.itemTextView.text = list.toString()
     }
 
     companion object {

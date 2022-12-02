@@ -3,11 +3,11 @@ package com.example.viewpager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.example.viewpager.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var activityBinding: ActivityMainBinding
+    private lateinit var viewAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,19 +17,13 @@ class MainActivity : AppCompatActivity() {
         val view = activityBinding.root
         setContentView(view)
         Log.e("hello", "hello")
+        viewPager()
     }
 
     fun viewPager() {
-        val list = arrayListOf<String>(
-            "Areeb", "Mahi", "Zara", "Hania", "Hamira", "Alia", "Aalisa", "Umair", "Saif"
-        )
-
-        activityBinding.viewPager.apply {
-            offscreenPageLimit = 3
-            (getChildAt(0) as RecyclerView).overScrollMode =
-                RecyclerView.OVER_SCROLL_NEVER
-        }
-
-        activityBinding.viewPager.adapter = ViewPagerAdapter(list)
+        val list = listOf<Int>(1, 2, 4, 5)
+        viewAdapter = ViewPagerAdapter()
+        activityBinding.viewPager.adapter = viewAdapter
+        viewAdapter.submitList(list)
     }
 }
